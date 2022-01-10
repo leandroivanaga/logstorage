@@ -1,6 +1,6 @@
 {
     "name": "leandroivanaga/logstorage",
-    "description": "The Laravel Lumen Framework.",
+    "description": "storage log",
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
