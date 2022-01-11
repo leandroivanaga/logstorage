@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dtos;
+namespace Logcomex\LogStorage\Dtos;
 
 class FileDto
 {
