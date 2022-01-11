@@ -14,7 +14,9 @@ class CreateStorageFileTable extends Migration
             $table->id();
             $table->string('pid');
             $table->string('disk');
+            $table->string('file_identifier');
             $table->string('file_name');
+            $table->string('extension');
 
             $table->timestamps();
         });
