@@ -2,12 +2,12 @@
 
 namespace Logcomex\LogStorage\Helpers;
 
-use App\Dtos\FileDto;
-use App\Entities\File\File;
 use App\Helpers\PIDHelper;
 use App\Repositories\File\FileRepository;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
+use Logcomex\LogStorage\Dtos\StorageFileDto;
+use Logcomex\LogStorage\Entities\StorageFile;
 
 class StorageHelper
 {
@@ -44,7 +44,7 @@ class StorageHelper
 
     private static function saveInDatabase(string $disk, string $fileName): void
     {
-        $fileDto = new FileDto();
+        $fileDto = new StorageFileDto();
         $fileDto->pid = PIDHelper::getPID();
         $fileDto->disk = $disk;
         $fileDto->fileName = $fileName;
@@ -57,7 +57,7 @@ class StorageHelper
         $files = FileRepository::getFilesByPid($pid);
 
         $return = [];
-        $files->each(function (File $file) use (&$return) {
+        $files->each(function (StorageFile $file) use (&$return) {
             $return[] = Url::route('download.file', ['file_name' => $file->file_name]);
         });
 
