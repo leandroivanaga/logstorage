@@ -16,7 +16,9 @@ class StorageFileDto
         return [
             'pid' => $this->pid,
             'disk' => $this->disk,
+            'file_identifier' => $this->fileIdentifier,
             'file_name' => $this->fileName,
+            'extension' => $this->extension,
         ];
     }
 }
