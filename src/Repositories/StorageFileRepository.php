@@ -2,21 +2,21 @@
 
 namespace Logcomex\LogStorage\Repositories;
 
-use App\Dtos\FileDto;
-use App\Entities\File\File;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
+use Logcomex\LogStorage\Dtos\StorageFileDto;
+use Logcomex\LogStorage\Entities\StorageFile;
 
 class StorageFileRepository
 {
-    public static function createFile(FileDto $fileDto): File
+    public static function createFile(StorageFileDto $storageFileDto): StorageFile
     {
-        return File::query()
-            ->create($fileDto->getFileData());
+        return StorageFile::query()
+            ->create($storageFileDto->getFileData());
     }
 
     public static function getFilesByPid(string $pid): Collection
     {
-        return File::query()
+        return StorageFile::query()
             ->wherePid($pid)
             ->get();
     }
