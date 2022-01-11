@@ -2,7 +2,7 @@
 
 namespace Logcomex\LogStorage\Dtos;
 
-class FileDto
+class StorageFileDto
 {
     public string $pid;
     public string $disk;
