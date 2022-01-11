@@ -3,11 +3,11 @@
 namespace Logcomex\LogStorage\Helpers;
 
 use App\Helpers\PIDHelper;
-use App\Repositories\File\FileRepository;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Logcomex\LogStorage\Dtos\StorageFileDto;
 use Logcomex\LogStorage\Entities\StorageFile;
+use Logcomex\LogStorage\Repositories\StorageFileRepository;
 
 class StorageHelper
 {
@@ -49,12 +49,12 @@ class StorageHelper
         $fileDto->disk = $disk;
         $fileDto->fileName = $fileName;
 
-        FileRepository::createFile($fileDto);
+        StorageFileRepository::createFile($fileDto);
     }
 
     public static function getFromDatabaseByPid(string $pid): array
     {
-        $files = FileRepository::getFilesByPid($pid);
+        $files = StorageFileRepository::getFilesByPid($pid);
 
         $return = [];
         $files->each(function (StorageFile $file) use (&$return) {
