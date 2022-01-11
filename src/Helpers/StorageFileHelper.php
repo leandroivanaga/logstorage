@@ -32,7 +32,7 @@ class StorageFileHelper
 
     private static function generateFileHashName(): string
     {
-        return sha1(time());
+        return sha1(uniqid());
     }
 
     private static function saveInDatabase(StorageFileDto $storageFileDto): void
