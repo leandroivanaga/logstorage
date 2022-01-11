@@ -8,8 +8,8 @@ class StorageFileDto
     public string $fileIdentifier;
     public string $content;
     public string $extension;
-    public ?string $fileName;
-    public ?string $disk;
+    public ?string $fileName = null;
+    public ?string $disk = null;
 
     public function getFileData(): array
     {
